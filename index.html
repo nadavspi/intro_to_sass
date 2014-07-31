@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Intro to Sass</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/nadav-dark.css" id="theme">
+
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/tomorrow-night-eighties.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+        <section>
+          <h1>Intro to Sass</h1>
+          Nadav Spiegelman
+        </section>
+
+        <section>
+          <section>
+            <h1>Awesome features</h1>
+          </section>
+          <section>
+            <h1>Nesting</h1>
+            Kinda mirrors HTML
+          </section>
+          <section>
+            <div class="code fragment">
+              Sass
+              <pre>
+                <code>
+nav {
+  color: blanchedalmond;
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+  }
+}
+                </code>
+                </pre>
+              </div>
+              <div class="code fragment">
+                CSS
+                <pre>
+                  <code>
+nav {
+  color: blanchedalmond;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+}
+                  </code>
+                </pre>
+              </div>
+          </section>
+
+          <section>
+            <p>Quick sidenote</p>
+            <h1>Beware of specificity</h1>
+          </section>
+
+          <section>
+            <h1>&amp;</h1>
+            <h2>parent selector</h2>
+          </section>
+
+          <section>
+          <div class="code fragment">
+            Sass
+            <pre>
+              <code>
+a {
+  color: saddlebrown;
+
+  &:hover {
+    color: wheat;
+  }
+}
+              </code>
+              </pre>
+            </div>
+            <div class="code fragment">
+              CSS
+              <pre>
+                <code>
+a {
+  color: saddlebrown;
+}
+
+a:hover {
+  color: wheat;
+}
+                </code>
+              </pre>
+            </div>
+          
+          </section>
+
+          <section>
+                    <div class="code fragment">
+                      Sass
+                      <pre>
+                        <code>
+a {
+  text-decoration: none;
+
+  p & {
+    text-decoration: underline;
+  }
+}
+                        </code>
+                        </pre>
+                      </div>
+                      <div class="code fragment" data-scss>
+                        CSS
+                        <pre>
+                          <code>
+a {
+  text-decoration: none;
+}
+
+p a {
+  text-decoration: underline;
+}
+                          </code>
+                        </pre>
+                      </div>
+                    </section>
+                    <!-- end nesting -->
+
+
+                    <section>
+                      <h1>Variables</h1>
+                    </section>
+
+                    <section>
+                      <pre>
+                        <code>
+// Colors
+$pink: #e20177;
+$blue: #75c3c8;
+
+// Font stacks
+$sans: "HelveticaNeue-Light", "Helvetica Neue Light",
+            "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$serif: "ff-spinoza-web-pro", Times, Georgia, serif;
+                        </code>
+                      </pre>
+                    </section>
+
+                    <section>
+                      <div class="code fragment">
+                        Sass
+                        <pre><code>
+/* Headings */
+h1 {
+  font-family: $sans;
+  color: $pink;
+}
+
+// I like this one more
+h2 {
+  font-family: $serif;
+  color: $blue;
+}
+                        </code></pre>
+                      </div>
+                      <div class="code fragment">
+                        CSS
+                        <pre><code>
+/* Headings */
+h1 {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: #e20177;
+}
+
+h2 {
+  font-family: "ff-spinoza-web-pro", Times, Georgia, serif;
+  color: #75c3c8;
+}                        
+                        </code></pre>
+                      </div>
+                    </section>
+
+                    <section>
+                      <p>Quick sidenote</p>
+                      <h1>Variables are coming to CSS</h1>
+                      <h2>eventually</h2>
+                    </section>
+
+                    <section>
+                      From the CSS Variables spec
+                      <pre><code>
+:root {
+  --main-color: #06c;
+  --accent-color: #006;
+
+}
+
+/* The rest of the CSS file */
+#foo h1 {
+  color: var(--main-color);
+}
+                      </code></pre>
+                    </section>
+        </section>
+        <!-- end variables -->
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
