@@ -12,19 +12,16 @@
 
 
 // Include theme-specific fonts
-@import url(https://fonts.googleapis.com/css?family=Montserrat:700);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
-
 
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: #111;
 
-$mainFont: 'Open Sans', sans-serif;
+$mainFont: "freight-sans-pro", sans-serif;
 $linkColor: #e7ad52;
 $linkColorHover: lighten( $linkColor, 20% );
-$headingFont: 'Montserrat', Impact, sans-serif;
+$headingFont: "freight-sans-pro";
 $headingTextShadow: none;
-$headingLetterSpacing: -0.03em;
+$headingLetterSpacing: 0;
 $headingTextTransform: none;
 $selectionBackgroundColor: #e7ad52;
 $mainFontSize: 30px;
@@ -35,9 +32,38 @@ $mainFontSize: 30px;
 // ---------------------------------------------
 
 // My custom stuff
+
+@import "normalize-opentype";
+
+
 * {
   box-sizing: border-box;
 }
+
+.wide {
+  .slides {
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+}
+
+.reveal {
+  h1 {
+    font-weight: 600;
+  }
+
+  h2 {
+    font-style: italic;
+  }
+
+  code {
+    padding-left: 1em !important;
+    font-family: "anonymous-pro",sans-serif;
+    font-size: 1.2em;
+    line-height: 1.3;
+  }
+}
+
 
 .code:not(:only-child) {
   float: left;
@@ -45,5 +71,18 @@ $mainFontSize: 30px;
 
   &:first-child {
     margin-right: 2%;
+  }
+}
+
+img {
+  margin-right: 1em !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: none !important;
+}
+
+.logos {
+  img {
+    height: 150px;
   }
 }

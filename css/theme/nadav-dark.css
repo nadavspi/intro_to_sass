@@ -3,8 +3,6 @@
  *
  * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
  */
-@import url(https://fonts.googleapis.com/css?family=Montserrat:700);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -13,7 +11,7 @@ body {
   background-color: #111111; }
 
 .reveal {
-  font-family: "Open Sans", sans-serif;
+  font-family: "freight-sans-pro", sans-serif;
   font-size: 30px;
   font-weight: normal;
   letter-spacing: -0.02em;
@@ -35,9 +33,9 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #eeeeee;
-  font-family: "Montserrat", Impact, sans-serif;
+  font-family: "freight-sans-pro";
   line-height: 0.9em;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   text-transform: none;
   text-shadow: none; }
 
@@ -135,11 +133,151 @@ body {
 .reveal .slide-number {
   color: #e7ad52; }
 
+/*! normalize-opentype v0.1.2 | MIT License | kennethormandy.com/journal/normalize-opentype-css */
+/**
+ * 1. Turn on kerning, standard ligatures, and proportional, oldstyle numerals
+ *    Turn off all other ligatures, tabular, lining numerals, and alternates
+ */
+html,
+body {
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0;
+  /* 1. */ }
+
+/* Headings
+========================================================================== */
+/**
+ * 1. Turn on discretionary ligatures for larger headings
+ */
+h1,
+h2,
+h3 {
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1;
+  /* 1. */ }
+
+/* Text-level semantics
+========================================================================== */
+/**
+ * 1. Change all letters to uppercase
+ * 2. Turn on small caps for upper and lowercase letters
+ */
+abbr {
+  text-transform: uppercase;
+  /* 1 */
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1;
+  /* 2 */ }
+
+/*
+ * TODO: Turn on diagonal fractions where appropriate
+ */
+time {
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0; }
+
+/*
+ * 1. Turn off kerning and ligatures,
+ *    Turn on lining, tabular numerals, slashed zero
+ */
+pre,
+kbd,
+samp,
+code {
+  font-feature-settings: "kern" 0, "liga" 0, "dlig" 0, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1;
+  /* 1. */ }
+
+/**
+ * 1. Turn on proper supercript numerals
+ */
+sup {
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "sups" 1;
+  /* 1. */ }
+
+/**
+ * 1. Turn on proper subscript numerals
+ */
+sub {
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1;
+  /* 1. */ }
+
+/* Grouping content
+========================================================================== */
+/**
+ * TODO: Adds proper bullets
+ */
+/*
+ * TODO:
+ * 1. Adds counters for lists
+ * 2. Use proper numerals for lists
+ */
+/**
+ * Adds proper small caps
+ */
+/**
+ * TODO: scmp, sc2c, pnum, case sensitive forms for postal codes
+ */
+/* Forms
+========================================================================== */
+/**
+ * 1. Turns on lining, proportional numerals without clarified zeroes
+ * TODO: Additional input modes https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#attr-inputmode
+ */
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="number"],
+input[type="range"],
+input[type="tel"],
+input[type="week"] {
+  font-feature-settings: "kern" 0, "liga" 1, "pnum" 1, "tnum" 0, "onum" 0, "lnum" 1, "zero" 0;
+  /* 1. */ }
+
+/* Localisation
+========================================================================== */
+/* Tables
+========================================================================== */
+/**
+ * 1. Turns on tabular, lining numerals and slashed zero
+ *    Turns off kerning, as it could impact tabular numerals
+ */
+table {
+  font-feature-settings: "kern" 0, "liga" 1, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1;
+  /* 1. */ }
+
+/**
+ * 1. Revert to defaults for table headings
+ */
+table thead,
+table tfoot {
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0;
+  /* 2. */ }
+
 * {
   box-sizing: border-box; }
+
+.wide .slides {
+  width: 100vw !important;
+  height: 100vh !important; }
+
+.reveal h1 {
+  font-weight: 600; }
+.reveal h2 {
+  font-style: italic; }
+.reveal code {
+  padding-left: 1em !important;
+  font-family: "anonymous-pro",sans-serif;
+  font-size: 1.2em;
+  line-height: 1.3; }
 
 .code:not(:only-child) {
   float: left;
   width: 48%; }
   .code:not(:only-child):first-child {
     margin-right: 2%; }
+
+img {
+  margin-right: 1em !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: none !important; }
+
+.logos img {
+  height: 150px; }

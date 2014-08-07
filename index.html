@@ -8,6 +8,9 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+    <script type="text/javascript" src="//use.typekit.net/qui7oje.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
 		<link rel="stylesheet" href="css/reveal.min.css">
 		<link rel="stylesheet" href="css/theme/nadav-dark.css" id="theme">
 
@@ -45,13 +48,53 @@
 
         <section>
           <section>
+            <h1>CSS Preprocessors</h1>
+          </section>
+
+          <section>
+            <div class="logos">
+              <img src="images/sass.png" alt="Sass">
+              <img src="images/less.png" alt="Less">
+              <img src="images/stylus.png" alt="Stylus">
+            </div>
+          </section>
+
+          <section>
+            <h1>Syntactically Awesome Style Sheets</h1>
+          </section>
+
+          <section data-state="wide">
+            <div class="code">
+              .sass syntax
+              <pre><code>
+h1
+  font-family: "ff-tundra-web"
+  font-size: 1.088rem
+  font-weight: normal
+              </code></pre>
+            </div>
+            <div class="code">
+              .scss syntax
+              <pre><code>
+h1 {
+  font-family: "ff-tundra-web";
+  font-size: 1.088rem;
+  font-weight: normal;
+}
+              </code></pre>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section>
             <h1>Awesome features</h1>
           </section>
           <section>
             <h1>Nesting</h1>
             Kinda mirrors HTML
           </section>
-          <section>
+          <section data-state="wide">
             <div class="code fragment">
               Sass
               <pre>
@@ -100,7 +143,7 @@ nav li {
             <h2>parent selector</h2>
           </section>
 
-          <section>
+          <section data-state="wide">
           <div class="code fragment">
             Sass
             <pre>
@@ -132,7 +175,7 @@ a:hover {
           
           </section>
 
-          <section>
+          <section data-state="wide">
                     <div class="code fragment">
                       Sass
                       <pre>
@@ -184,7 +227,7 @@ $serif: "ff-spinoza-web-pro", Times, Georgia, serif;
                       </pre>
                     </section>
 
-                    <section>
+                    <section data-state="wide">
                       <div class="code fragment">
                         Sass
                         <pre><code>
@@ -230,7 +273,6 @@ h2 {
 :root {
   --main-color: #06c;
   --accent-color: #006;
-
 }
 
 /* The rest of the CSS file */
@@ -239,9 +281,198 @@ h2 {
 }
                       </code></pre>
                     </section>
-        </section>
-        <!-- end variables -->
 
+                    <section>
+                      <h1>@import</h1>
+                    </section>
+
+                    <section>
+                      <h2>Already exists in CSS, but improved upon</h2>
+                    </section>
+
+                    <section data-state="wide">
+                      <div class="code">
+                        _headings.scss
+                        <pre><code>
+h1 {
+  font-size: 2em;
+  line-height: 1.2;
+}
+                        </code></pre>
+                      </div>
+                      <div class="code">
+                        _buttons.scss
+                        <pre><code>
+.button {
+  padding: .5em 1em;
+  text-transform: uppercase;
+  background-color: deepskyblue;
+}
+                        </code></pre>
+                      </div>
+                    </section>
+
+                    <section data-state="wide">
+                      <div class="fragment code">
+                        styles.scss
+                        <pre><code>
+@import "headings";
+@import "buttons";
+                        </code></pre>
+                        <small><em>No underscore or file extension</em></small>
+                      </div>
+                      <div class="fragment code">
+                        styles.css
+                        <pre><code>
+h1 {
+  font-size: 2em;
+  line-height: 1.2;
+}
+
+.button {
+  padding: .5em 1em;
+  text-transform: uppercase;
+  background-color: deepskyblue;
+}
+                        
+                        </code></pre>
+                      </div>
+                    </section>
+
+                    <section>
+                      <h1>Mixins</h1>
+                    </section>
+
+                    <section data-state="wide">
+                      <p class="sassmeister" data-gist-id="6e5eaec9d13eee16fcad" data-height="480"><a href="http://sassmeister.com/gist/6e5eaec9d13eee16fcad">Play with this gist on SassMeister.</a></p><script src="http://cdn.sassmeister.com/js/embed.js" async></script>
+                    </section>
+
+                    <section>
+                      <h1>Mixins take arguments</h1>
+                      Now we&rsquo;re really getting to some shit
+                    </section>
+
+                    <section data-state="wide">
+                      <p class="sassmeister" data-gist-id="e76fa23ea74ed29ff9d0" data-height="480"><a href="http://sassmeister.com/gist/e76fa23ea74ed29ff9d0">Play with this gist on SassMeister.</a></p><script src="http://cdn.sassmeister.com/js/embed.js" async></script>
+                    </section>
+
+                    <section data-state="wide">
+                      <p class="sassmeister" data-gist-id="371c9669e578a9d3d0aa" data-height="480"><a href="http://sassmeister.com/gist/371c9669e578a9d3d0aa">Play with this gist on SassMeister.</a></p><script src="http://cdn.sassmeister.com/js/embed.js" async></script> 
+                    </section>
+
+                    <section>
+                      <h1>Mixins can lead to code duplication</h1>
+                    </section>
+
+                    <section>
+                      <h1>@extend</h1>
+                      <h2>Inheritance</h2>
+                    </section>
+
+                    <section>
+                      <h1>Share properties between selectors</h1>
+                      <h2>Keep it DRY</h2>
+                    </section>
+
+                    <section data-state="wide">
+                      <h4>Mixin</h4>
+                      <p class="sassmeister" data-gist-id="09419d5ff501d19db486" data-height="480"><a href="http://sassmeister.com/gist/09419d5ff501d19db486">Play with this gist on SassMeister.</a></p><script src="http://cdn.sassmeister.com/js/embed.js" async></script>
+                    </section>
+
+                    <section data-state="wide">
+                      <h4>@extend</h4>
+                      <p class="sassmeister" data-gist-id="7dabd58282072d2136dd" data-height="480"><a href="http://sassmeister.com/gist/7dabd58282072d2136dd">Play with this gist on SassMeister.</a></p><script src="http://cdn.sassmeister.com/js/embed.js" async></script>
+                    </section>
+
+                    <section>
+                      <h1>We never used .button in our HTML</h1>
+                    </section>
+
+                    <section>
+                      <h1>%</h1>
+                      <h2>placeholder selector</h2>
+                    </section>
+
+                    <section data-state="wide">
+                      <p class="sassmeister" data-gist-id="c4da63e462c6bddb7f5f" data-height="480"><a href="http://sassmeister.com/gist/c4da63e462c6bddb7f5f">Play with this gist on SassMeister.</a></p><script src="http://cdn.sassmeister.com/js/embed.js" async></script>
+                    </section>
+
+                    <section data-state="wide">
+                      <h4>Let's improve this</h4>
+                      <p class="sassmeister" data-gist-id="371c9669e578a9d3d0aa" data-height="480"><a href="http://sassmeister.com/gist/371c9669e578a9d3d0aa">Play with this gist on SassMeister.</a></p><script src="http://cdn.sassmeister.com/js/embed.js" async></script>
+                    </section>
+
+        </section>
+        <!-- end features -->
+
+        <section>
+          <section>
+            <h1>How do I use it?</h1>
+          </section>
+
+          <section>
+            <h2>For playing</h2>
+            <img src="images/sassmeister.png" alt="Sassmeister">
+          </section>
+
+          <section>
+            <h2>For playing</h2>
+            <img src="images/codepen.png" alt="Codepen">
+          </section>
+
+          <section>
+            <h2>Less geeky</h2>
+            <a href="http://koala-app.com/">
+              <img src="images/koala.png" alt="Koala">
+            </a>
+          </section>
+
+          <section>
+            <h2>Less geeky</h2>
+            <a href="http://mhs.github.io/scout-app/">
+              <img src="images/scout.png" alt="Scout">
+            </a>
+            <h4>Available for Windows too</h4>
+          </section>
+
+          <section>
+            <h2>More geeky</h2>
+            <img src="images/commandline.png" alt="Sass command line tool">
+          </section>
+
+          <section>
+            <h2>More info here:</h2>
+            <a href="http://sass-lang.com/install">http://sass-lang.com/install</a>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Resources</h1>
+          </section>
+
+          <section>
+            <a href="http://sass-lang.com">
+              <img src="images/sasslang.png" alt="Sass-lang.com">
+            </a>
+          </section>
+
+          <section>
+            <a href="http://alistapart.com/article/getting-started-with-sass">
+              <img src="images/alistapart.png" alt="A List Apart - Intro to Sass">
+            </a>
+          </section>
+
+          <section>
+            <a href="http://thesassway.com/">
+              <img src="images/thesassway.png" alt="The Sass Way">
+            </a>
+          </section>
+
+          <section>
+            <h2>Talk to me</h2>
+          </section>
+        </section>
 			</div>
 
 		</div>
